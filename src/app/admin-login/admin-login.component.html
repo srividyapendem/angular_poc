@@ -1,0 +1,8 @@
+<h1>Admin Login</h1>
+<form (submit)="handleAlogin($event)">
+    <label for="Aemail">Email:</label><br>
+    <input type="text" name="Aemail" id="Aemail" required [(ngModel)]="Adminlog.email"><br>
+    <label for="Apassword">Password:</label><br>
+    <input type="password" name="Apassword" id="Apassword" required [(ngModel)]="Adminlog.password"><br>
+    <input type="submit" value="Login">
+</form>

@@ -1,0 +1,14 @@
+<h1>Admin Register</h1>
+<form (submit)="handleARegister($event)">
+    <label for="Ausername">Username:</label><br>
+    <input type="text" id="Ausername" name="Ausername" required [(ngModel)]="Aregister.username"><br>
+    <label for="Aemail">Email:</label><br>
+    <input type="email" id="Aemail" name="Aemail" required [(ngModel)]="Aregister.email"><br>
+    <label for="Apassword">Password:</label><br>
+    <input type="password" id="Apassword"  name="Apassword" minlength="8" required [(ngModel)]="Aregister.password"><br>
+    <label for="Acaname">Academy Name:</label><br>
+    <input type="text" id="Acaname" name="Acaname" required [(ngModel)]="Aregister.academy.name"><br>
+    <label for="Acaweb">Academy Website:</label><br>
+    <input type="text"  id="Acaweb" name="Acaweb" [(ngModel)]="Aregister.academy.website"><br>
+    <input type="submit" value="Register">
+</form>

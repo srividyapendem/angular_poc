@@ -1,0 +1,12 @@
+<h1>Registered Students</h1>
+<ul>
+    <li  *ngFor="let student of studentDetails">
+    {{student.name}} &nbsp;  &nbsp;  &nbsp;     {{student.email}}  
+ 
+  <a routerLink="/Student/management/{{student._id}}"> <button class="btn btn-primary" 
+    >Edit</button> </a>
+
+    </li>
+    </ul>
+
+   

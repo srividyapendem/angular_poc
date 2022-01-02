@@ -1,0 +1,12 @@
+
+{{rerender()}}
+<h1>E-Learning</h1>
+<ul>
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+    <li *ngIf="!Adminlog"><a routerLink="/Student" routerLinkActive="active">Student</a></li>
+    <li *ngIf="!Adminlog"><a routerLink="/Adminpage" routerLinkActive="active">Admin</a></li>
+    <li *ngIf="Adminlog"><a routerLink="/Studentpage" routerLinkActive="active">Students</a></li>
+    <li *ngIf="Adminlog"><a routerLink="/Account" routerLinkActive="active">Account</a></li>
+    <li *ngIf="Adminlog"><a routerLink="/" routerLinkActive="active" >Logout</a></li>
+</ul>
+<router-outlet></router-outlet>
