@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/services/admin.service';
+import { Component, OnInit } from "@angular/core"
+import { AdminService } from "src/services/admin.service"
 
 @Component({
-  selector: 'app-admin-register',
-  templateUrl: './admin-register.component.html',
-  styleUrls: ['./admin-register.component.css'],
+  selector: "app-admin-register",
+  templateUrl: "./admin-register.component.html",
+  styleUrls: ["./admin-register.component.css"],
 })
 export class AdminRegisterComponent implements OnInit {
 

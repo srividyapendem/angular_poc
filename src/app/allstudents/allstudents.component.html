@@ -1,12 +1,116 @@
-<h1>Registered Students</h1>
-<ul>
-    <li  *ngFor="let student of studentDetails">
-    {{student.name}} &nbsp;  &nbsp;  &nbsp;     {{student.email}}  
- 
-  <a routerLink="/Student/management/{{student._id}}"> <button class="btn btn-primary" 
-    >Edit</button> </a>
 
-    </li>
-    </ul>
+<section class="wrapper">
+  <div  class="container">
+    <br>
+    <i class="bi bi-person-plus-fill"  routerLink="Register"
+    routerLinkActive="active"  data-bs-toggle="modal" data-bs-target="#exampleModal"><b> New Register</b></i>  
 
+    <br>
+    <br>
+    <br>
    
+   
+<h3 class=" text-center text-dark h3 mb-2 fw-bolder fs-4">
+  Registered Students</h3>
+<table  class=
+   "rounded bg-white shadow p-5 table">
+  
+    <thead class="table-dark">
+      <tr>
+        <th > Name</th> 
+        <th >Email</th>
+        <th>Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr   *ngFor="let student of studentDetails">
+        <td> {{student.name|uppercase}}</td> 
+        
+        <td> {{student.email}}</td> 
+        
+        <td><a routerLink="/Student/management/{{student._id}}">
+          <i class="bi bi-pencil-square" 
+          ></i>  </a>
+          &nbsp;&nbsp;
+          <i class="bi bi-trash" mwlConfirmationPopover
+          [popoverTitle]="popoverTitle"
+          [popoverMessage]="popoverMessage"
+          placement="left"
+          (confirm)="onDelete(student._id)"
+          (cancel)="cancelClicked = true"
+         ></i> 
+          
+      </td>
+        
+      
+      </tr>
+     
+    </tbody>
+  </table>
+
+  
+  
+  <section class="wrapper">
+    <div  class="container">
+ 
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="btn-close"
+         data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class= "rounded bg-white shadow p-5" 
+          (submit)="handleSRegister($event)">
+            <h3 class=" text-center text-dark h3 mb-2 fw-bolder fs-4">
+              Student Management</h3>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" pattern="[a-z A-Z]+$" name="name"
+                  id="floatingInput"  #name="ngModel" required
+                   [(ngModel)]="Sregister.name"
+                   
+                >
+                <label for="floatingInput">Name</label>
+              </div>
+              <span *ngIf="name.invalid && name.touched"  style="color:red">Valid name Required  </span>
+          
+              <div class="form-floating mb-3" >
+                <input type="email" class="form-control"
+                 id="floatingInput" required name="email" #email="ngModel"
+                  [(ngModel)]="Sregister.email"
+                 >
+                 <label for="floatingInput">Email address</label>
+               </div>
+               <span *ngIf="email.invalid && email.touched"  style="color:red">Email Required *</span>
+               <div class="form-floating mb-3" >
+                <input type="password" class="form-control" name="password"
+                 id="floatingInput"  minlength="8" 
+                 #password="ngModel" required [(ngModel)]="Sregister.password"
+                 >
+                 <label for="floatingInput">Password</label>
+               </div>
+               <span *ngIf="password.invalid && password.touched"  style="color:red">please enter Valid passowrd * </span>
+
+               <div class="form-check ">
+                <input class="form-check-input" 
+                
+                 type="checkbox" 
+                 id="flexCheckChecked" required 
+                 [(ngModel)]="Sregister.isAllowed" checked name="isAllowed" >
+                <label class="form-check-label" 
+                for="flexCheckChecked"> 
+                  isAllowed
+                </label>
+                </div>
+                <button  class="w-100 btn btn-primary submit_btn my-4" 
+                type="submit" >Register</button>
+           
+         
+           
+          </form>
+          <br>
+          <br>
+         
+          

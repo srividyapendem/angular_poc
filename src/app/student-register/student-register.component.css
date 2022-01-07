@@ -1,0 +1,38 @@
+
+.bd-placeholder {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  
+  
+.wrapper{
+    padding:0 0 100px;
+  
+    background-position :bottom center;
+  
+    background-repeat: no-repeat;
+    background-size:contain ;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+.wrapper input{
+    background-color: var(--light-white);
+    border-color:var(--light-white) ;
+    color: var(--gray);
+}
+.wrapper input:focus{
+    box-shadow:none;
+}
+.wrapper .submit_btn{
+    padding:15px;
+    font-weight:500;
+}

@@ -1,21 +1,67 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<router-outlet></router-outlet>
-<h1>Student Management</h1>
-<form [formGroup]="editStudent"  (ngSubmit)="updateStudent()">
-<div class="form-group">
-     <label>Name</label>
-     <input formControlName="name" type="text" class="form-control">
- </div>
- <div class="form-group">
-  <label>Email</label>
-  <input  formControlName="email"   type="email" class="form-control">
+   
+<section class="wrapper">
+  <div  class="container">
+   <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3
+    col-xl-4 offset-xl-4">
+<form class="rounded bg-white shadow p-5" 
+[formGroup]="editStudent" 
+ (ngSubmit)="updateStudent()">
+ <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Data updated successfully
+  <button type="button" class="btn-close" data-bs-dismiss="alert" 
+  aria-label="Close" (click)="closeAlert()"></button>
 </div>
-<div class="form-group">
-    <input type="checkbox"  formControlName="email"   class="form-control"  >
-    <label for="isAllowed">IsAllowed:</label><br>
-  </div>
-     <input type="submit" value="update">
-     &nbsp;  &nbsp;   &nbsp;   <input type="submit" value="cancel">
+<h3 class=" text-center text-dark h3 mb-2 fw-bolder fs-4">
+    Student Management</h3>
+  
+<div class="form-floating mb-3">
+  <input type="text" class="form-control"
+    id="floatingInput" 
+      formControlName="name"
+  >
+
+  <label for="floatingInput">Name</label>
+  <span style="color : red;" *ngIf="name && name.invalid && name.touched">this input is invalid</span>
+</div>
+<div class="form-floating mb-3" >
+  <input type="email" class="form-control"
+   id="floatingInput" 
+   formControlName="email"
+   >
+   <label for="floatingInput">Email address</label>
+   </div>
+ 
+
+
+
+  <div class="form-check ">
+    <input class="form-check-input" 
+     formControlName="isAllowed" 
+     type="checkbox" 
+     id="flexCheckChecked" checked >
+    <label class="form-check-label" 
+    for="flexCheckChecked">
+      isAllowed
+    </label>
+    </div>
+ 
+     <button class="w-100 btn btn-primary submit_btn my-4" 
+     type="submit">Update</button>
+    <button
+      class="w-100 btn btn-primary 
+      submit_btn my-4" 
+     type="submit" (click)="onCancel()">Cancel</button>
+ 
 </form>
+</div>
+</div>
+</section>
+
 
 
